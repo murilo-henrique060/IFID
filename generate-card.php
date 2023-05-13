@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <?php
+        if ($_FILES["imageUpload"]["size"] == 0) {
+            $image_data = "img/placeholder.png";
+        } else {
+            $image_data = 'data:' . $_FILES["imageUpload"]["type"] . ';base64,' . base64_encode(file_get_contents($_FILES["imageUpload"]["tmp_name"]));
+        }
+    ?>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="//code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.8.0/dist/JsBarcode.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/barcodes/JsBarcode.code128.min.js"></script>
     <script src="js/script.js"></script>
+
     <link rel="stylesheet" href="css\style.css" media="all">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +42,7 @@
                 </div>
             </div>
             <div class="content-image">
-                <img src="img/user.png" alt="">
+                <img src="<?php echo $image_data ?>" alt="">
             </div>
         </div>
         <div class="container">

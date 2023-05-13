@@ -7,7 +7,7 @@
     <title>IFID</title>
 </head>
 <body>
-    <form action="generate-card.php" method="post">
+    <form action="generate-card.php" enctype="multipart/form-data" method="post">
         <label for="name">Nome:</label> <br>
         <input type="text" name="name" id="name" placeholder="Nome" required/> <br>
         <br>
@@ -48,6 +48,10 @@
         <input type="radio" id="graduacao" name="type" value="Graduação">
         <label for="graduacao">Graduação</label><br>
         <br>
+
+        <label for="image">Imagem:</label> <br>
+        <input type="file" name="imageUpload" id="imageUpload" accept="image/*"/> <br>
+
         <input type="submit" value="Gerar Cartões"> <br>
     </form>
 </body>
