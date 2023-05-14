@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
 
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    c
 
     <title>IFID</title>
 </head>
@@ -27,6 +27,15 @@
         <h1>Gerar Cartões</h1>
 
         <form action="generate-card.php" method="post" enctype="multipart/form-data">
+
+        <label for="formato">Formato:</label>
+        <select name="formato" id="formato">
+            <option value="padrao">Padrão (7cm x 10cm)</option>
+            <option value="cartao">Cartão (5.5cm x 8.5cm)</option>
+        </select>
+
+        <h2>Insira os dados dos alunos</h2>
+
             <table id="form">
                  <tr>
                     <th></th>

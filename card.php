@@ -1,4 +1,6 @@
 <head>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="//code.jquery.com/jquery-latest.min.js"></script>
@@ -6,13 +8,15 @@
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/barcodes/JsBarcode.code128.min.js"></script>
     <script src="js/script.js"></script>
 
-    <link rel="stylesheet" href="css\style.css" media="all">
+    <link rel="stylesheet" href="css\card.css" media="all">
+
+    <title>Cartões</title>
 </head>
 
 <?php
-    function genCard($nome, $matricula, $curso, $foto) {
+    function genCard($formato, $nome, $matricula, $curso, $foto) {
         echo "
-        <div class='card'>
+        <div class='$formato'>
             <div class='topnav'></div>
             <div class='content-box'>
                 <div class='content-info'>
