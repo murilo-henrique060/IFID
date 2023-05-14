@@ -21,10 +21,6 @@
 
     for ($i = 0; $i < count($names); $i++) {
         genCard($names[$i], $matriculas[$i], $cursos[$i], $modalidades[$i], $photos[$i]);
-        $count = ($count + 1) % 5;
-        if ($count == 0) {
-            echo "<br>";
-        }
     }
     echo "</body>";
 ?>
