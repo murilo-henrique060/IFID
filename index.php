@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
 
-    c
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
     <title>IFID</title>
 </head>
