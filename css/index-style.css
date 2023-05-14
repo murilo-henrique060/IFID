@@ -60,6 +60,17 @@ section {
         line-height: 1em;
     }
 
+    label[for="formato"] {
+        display: inline-block;
+        margin: 0 10px 0 0;
+        padding: 0;
+
+        font-family: 'roboto', sans-serif;
+        font-size: 10pt;
+        font-weight: 300;
+        line-height: 1em;
+    }
+
     h2 {
         margin: 20px 0;
         padding: 0;
