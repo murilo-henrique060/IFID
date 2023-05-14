@@ -23,23 +23,66 @@ function addRow(tableID) {
     matricula.required = true;
     row.insertCell(2).appendChild(matricula);
 
-    var curso = document.createElement("input");
-    curso.setAttribute("list", "cursos");
+    const cursos = [
+        "Técnico em Agente Comunitário de Saúde",
+        "Técnico em Agrimensura",
+        "Técnico em Aquicultura",
+        "Técnico em Desenvolvimento de Sistemas",
+        "Técnico em Design de Móveis e Interiores",
+        "Técnico em Edificações",
+        "Técnico em Eletrônica",
+        "Técnico em Eletrotécnica",
+        "Técnico em Estradas",
+        "Técnico em Eventos",
+        "Técnico em Geodésia e Cartografia",
+        "Técnico em Hospedagem",
+        "Técnico em Mecânica",
+        "Técnico em Metalurgia",
+        "Técnico em Mineração",
+        "Técnico em Pesca",
+        "Técnico em Química",
+        "Técnico em Saneamento",
+        "Técnico em Segurança do Trabalho",
+        "Técnico em Telecomunicação",
+        "Técnico em Turismo"
+    ]
+
+    var curso = document.createElement("select");
     curso.name = "curso[]";
     curso.required = true;
+
+    for (var option of cursos) {
+        var o = document.createElement("option");
+        o.text = option;
+        curso.options.add(o);
+    }
+
     row.insertCell(3).appendChild(curso);
 
-    var modalidade = document.createElement("input");
-    modalidade.setAttribute("list", "modalidade");
-    modalidade.name = "modalidade[]";
-    modalidade.required = true;
-    row.insertCell(4).appendChild(modalidade);
+    var botao = document.createElement("label");
+    botao.className = "file-btn";
+
+    var texto = document.createElement("span");
+    texto.innerText = "Selecione uma imagem";
+    botao.appendChild(texto);
 
     var foto = document.createElement("input");
     foto.type = "file";
     foto.name = "foto[]";
     foto.accept = "image/*";
-    row.insertCell(5).appendChild(foto);
+
+    botao.appendChild(foto);
+    row.insertCell(4).appendChild(botao);
+
+    foto.addEventListener("change", ()=>{
+        let nome = "Selecione uma imagem";
+
+        if (foto.files.length > 0) {
+            nome = foto.files[0].name;
+        }
+
+        foto.parentElement.getElementsByTagName("span")[0].innerText = nome;
+    })
 }
 
 function deleteRow(tableID) {

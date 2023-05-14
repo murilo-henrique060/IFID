@@ -10,7 +10,7 @@
 </head>
 
 <?php
-    function genCard($nome, $matricula, $curso, $modalidade, $foto) {
+    function genCard($nome, $matricula, $curso, $foto) {
         echo "
         <div class='card'>
             <div class='topnav'></div>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class='course-type'>
-                        $modalidade
+                        Técnico
                     </div>
                 </div>
                 <div class='content-image'>

@@ -4,7 +4,6 @@
     $names = $_POST["name"];
     $matriculas = $_POST["matricula"];
     $cursos = $_POST["curso"];
-    $modalidades = $_POST["modalidade"];
     $photos = array();
 
     for ($i = 0; $i < count($_FILES["foto"]["tmp_name"]); $i++) {
@@ -20,7 +19,7 @@
     $count = 0;
 
     for ($i = 0; $i < count($names); $i++) {
-        genCard($names[$i], $matriculas[$i], $cursos[$i], $modalidades[$i], $photos[$i]);
+        genCard($names[$i], $matriculas[$i], $cursos[$i], $photos[$i]);
     }
     echo "</body>";
 ?>
