@@ -1,75 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <?php
-        if ($_FILES["imageUpload"]["size"] == 0) {
-            $image_data = "img/placeholder.png";
+<?php
+    include("card.php");
+
+    $names = $_POST["name"];
+    $matriculas = $_POST["matricula"];
+    $cursos = $_POST["curso"];
+    $modalidades = $_POST["modalidade"];
+    $photos = array();
+
+    for ($i = 0; $i < count($_FILES["foto"]["tmp_name"]); $i++) {
+        if ($_FILES["foto"]["size"][$i] == 0) {
+            array_push($photos, "img/placeholder.png");
         } else {
-            $image_data = 'data:' . $_FILES["imageUpload"]["type"] . ';base64,' . base64_encode(file_get_contents($_FILES["imageUpload"]["tmp_name"]));
+            array_push($photos, 'data:' . $_FILES["foto"]["type"][$i] . ';base64,' . base64_encode(file_get_contents($_FILES["foto"]["tmp_name"][$i])));
         }
-    ?>
+    }
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-    <script src="//code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.8.0/dist/JsBarcode.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/barcodes/JsBarcode.code128.min.js"></script>
-    <script src="js/script.js"></script>
+    echo "<body>";
 
-    <link rel="stylesheet" href="css\style.css" media="all">
+    $count = 0;
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFID</title>
-</head>
-<body>
-    <div class="card">
-        <div class="topnav"></div>
-        <div class="content-box">
-            <div class="content-info">
-                <div class="logo-and-institute">
-                    <div class="logo">
-                        <img src="img/logo.svg" alt="">
-                    </div>
-                    <div class="institute">
-                        <div class="name">INSTITUTO<br>FEDERAL</div>
-                        <div class="campus"><?php echo $_POST["state"] ?></div>
-                    </div>
-                </div>
-                <div class="course-type">
-                    <?php echo $_POST["type"] ?>
-                </div>
-            </div>
-            <div class="content-image">
-                <img src="<?php echo $image_data ?>" alt="">
-            </div>
-        </div>
-        <div class="container">
-            <div class="title">Nome</div>
-            <div class="content"><p><?php echo $_POST["name"] ?></p></div>
-        </div>
-        <div class="container">
-            <div class="title">Curso</div>
-            <div class="content"><p><?php echo $_POST["course"] ?></p></div>
-        </div>
-        
-        <div class="barcode">
-            <img id="barcode"/>
-        </div>
+    for ($i = 0; $i < count($names); $i++) {
+        genCard($names[$i], $matriculas[$i], $cursos[$i], $modalidades[$i], $photos[$i]);
+        $count = ($count + 1) % 5;
+        if ($count == 0) {
+            echo "<br>";
+        }
+    }
+    echo "</body>";
+?>
 
-        <script>
-            genBarcode("barcode", <?php echo $_POST["school_id"] ?>);
-        </script>
-
-        <div class="footer">
-            <div class="title">
-                Matrícula
-            </div>
-            <div class="content">
-                <?php echo $_POST["school_id"] ?>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+<script>
+    window.print();
+    window.close();
+</script>
