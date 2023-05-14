@@ -9,7 +9,7 @@
 
     for ($i = 0; $i < count($_FILES["foto"]["tmp_name"]); $i++) {
         if ($_FILES["foto"]["size"][$i] == 0) {
-            array_push($photos, "img/placeholder.png");
+            array_push($photos, "img/placeholder.svg");
         } else {
             array_push($photos, 'data:' . $_FILES["foto"]["type"][$i] . ';base64,' . base64_encode(file_get_contents($_FILES["foto"]["tmp_name"][$i])));
         }
