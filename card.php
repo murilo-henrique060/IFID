@@ -8,6 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/barcodes/JsBarcode.code128.min.js"></script>
     <script src="js/script.js"></script>
 
+    <link rel="stylesheet" href="css\card-padrao.css" media="all">
+    <link rel="stylesheet" href="css\card-cartao.css" media="all">
     <link rel="stylesheet" href="css\card.css" media="all">
 
     <title>Cartões</title>
@@ -16,7 +18,7 @@
 <?php
     function genCard($formato, $nome, $matricula, $curso, $foto) {
         echo "
-        <div class='$formato'>
+        <div class='card $formato'>
             <div class='topnav'></div>
             <div class='content-box'>
                 <div class='content-info'>

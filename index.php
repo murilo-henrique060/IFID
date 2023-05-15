@@ -3,7 +3,7 @@
 <head>
     <script src="js/dinamic_table.js"></script>
 
-    <link rel="stylesheet" href="css/index-style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <meta charset="UTF-8">
 
@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <a href="index.php"><img src="img/favicon2.svg" alt="Logo do Site"></a>
+        <a href="index.php"><img src="img/favicon2.png" alt="Logo do Site"></a>
 
         <nav>
             <a href="index.php">Gerar Cartões</a>
