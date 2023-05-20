@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:800,400');
+@import url('https://fonts.googleapis.com/css?family=Open Sans Condensed:300');
+
+:root {
+    --primary-color: #5BBD3A;
+    --secondary-color: #7FDD60;
+    --text-color: white;
+}
+
+.padrao {
+    width: 7cm;
+
+    box-sizing: border-box;
+    padding: 3mm 4mm;
+
+    border: 1px solid;
+}
+
+.padrao .topnav {
+    width: 62mm;
+    height: 7mm;
+
+    margin-bottom: 1mm;
+
+    background-color: var(--primary-color);
+    -webkit-print-color-adjust: exact;
+}
+
+.padrao .content-box {
+    width: 62mm;
+    height: 30mm;
+
+    margin-bottom: 1mm;
+}
+
+    .padrao .content-info{
+        float: left;
+        width: fit-content;
+    }
+
+        .padrao .logo-and-institute {
+            width: 36mm;
+            height: 13mm;
+
+            margin-bottom: 1mm;
+        }
+
+            .padrao .logo {
+                float: left;
+
+                width: 9.7mm;
+                height: 13mm;
+
+                margin-right: 1mm;
+            }
+                .padrao .logo img {
+                    width: 100%;
+                    height: 100%;
+
+                    object-fit: cover;
+                }
+
+            .padrao .institute {
+                float: left;
+
+                width: 25mm;
+                height: 13mm;
+
+                margin-bottom: 1mm;
+            }
+                .padrao .institute .name {
+                    margin: 0;
+                    padding: 0;
+
+                    font-family: 'Open Sans';
+
+                    font-size: 12pt;
+                    font-weight: 800;
+
+                    line-height: 1em;
+                }
+
+                .padrao .institute .campus {
+                    margin: 0;
+                    padding: 0;
+
+                    font-family: 'Open Sans', sans-serif;
+
+                    text-transform: capitalize;
+
+                    font-size: 10pt;
+                    font-weight: 400;
+
+                    line-height: 1em;
+                }
+
+        .padrao .course-type {
+            height: 16mm;
+
+            text-align: center;
+            line-height: 16mm;
+
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14pt;
+
+            text-transform: capitalize;
+
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            -webkit-print-color-adjust: exact;
+        }
+        
+
+    .padrao .content-image {
+        float: right;
+        position: relative;
+
+        width: 25mm;
+        height: 30mm;
+
+        overflow: hidden;
+        background-color: var(--secondary-color);
+        -webkit-print-color-adjust: exact;
+    }
+
+        .padrao .content-image img {
+            position: absolute;
+
+            bottom: 0;
+
+            width: 100%;
+            
+            object-fit: cover;
+        }
+
+.padrao .container {
+    position: relative;
+    width: 62mm;
+}
+
+    .padrao .container .title {
+        width: fit-content;
+
+        padding: 0 2mm;
+
+        margin-left: 2mm;
+
+        position: relative;
+        font-family: 'Open Sans Condensed', sans-serif;
+
+        font-size: 10pt;
+        line-height: 1em;
+
+        background-color: white;
+        -webkit-print-color-adjust: exact;
+
+    }
+
+    .padrao .container .content {
+        position: relative;
+        width: 62mm;
+        height: 13mm;
+
+        z-index: -1;
+
+        transform: translateY(-5pt);
+
+        font-family: 'Open Sans', sans-serif;
+
+        font-size: 10pt;
+
+        text-align: center;
+
+        border: 1px solid black;
+    }
+
+        .padrao .content p {
+            position: absolute;
+
+            width: 100%;
+
+            top: 50%;
+            left: 50%;
+
+            text-transform: uppercase;
+
+            transform: translate(-50%, calc(-50% - 10pt));
+        }
+
+.padrao .barcode {
+    width: 62mm;
+    height: 12mm;
+}
+
+    .padrao .barcode img {
+        width: 100%;
+        height: 100%;
+    }
+
+.padrao .footer {
+    position: relative;
+
+    width: 62mm;
+    height: 10mm;
+
+    margin-top: 1mm;
+
+    background-color: var(--primary-color);
+    -webkit-print-color-adjust: exact;
+}
+
+    .padrao .footer .title {
+        position: absolute;
+        width: fit-content;
+
+        left: 50%;
+        bottom: 57%;
+    
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 10pt;
+        line-height: 1em;
+
+        color: var(--text-color);
+    }
+
+    .padrao .footer .content {
+        position: absolute;
+        width: fit-content;
+
+        margin-right: 4mm;
+
+        right: 0;
+        bottom: 0;
+
+        font-family: 'Open Sans', sans-serif;
+
+        font-size: 14pt;
+
+        color: var(--text-color);
+    }

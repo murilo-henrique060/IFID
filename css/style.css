@@ -1,7 +1,10 @@
 :root {
     --primary-color: #518c3e;
     --secondary-color: #3e7a2a;
+    --remove-btn-color: #aa2c2c;
+    --remove-btn-hover-color: #8c2626;
     --text-color: #f9f9f9ff;
+    --border-color: #ccc;
 }
 
 body {
@@ -113,7 +116,7 @@ section {
                 padding: 0 10px;
                 box-sizing: border-box;
 
-                border: 1px solid #ccc;
+                border: 1px solid var(--border-color);
                 border-radius: 5px;
 
                 font-family: 'roboto', sans-serif;
@@ -128,7 +131,7 @@ section {
                 margin: 0;
                 padding: 0;
 
-                border: 1px solid #ccc;
+                border: 1px solid var(--border-color);
                 border-radius: 5px;
 
                 font-family: 'roboto', sans-serif;
@@ -203,11 +206,11 @@ section {
                 }
 
             #remove-btn {
-                background-color: #aa2c2c;
+                background-color: var(--remove-btn-color);
             }
 
                 #remove-btn:hover {
-                    background-color: #8c2626;
+                    background-color: var(--remove-btn-hover-color);
                 }
 
     input[type=submit] {
@@ -265,7 +268,7 @@ footer {
         font-weight: 300;
         line-height: 1em;
         color: var(--text-color);
-        text-decoration: none;
+        text-decoration: none;  
     }
 
     footer a:hover {
