@@ -11,11 +11,17 @@
     <link rel="stylesheet" href="css\card.css" media="all">
 
     <title>Cartões</title>
-</head>
 
 <?php
-    function genCard($formato, $nome, $matricula, $curso, $foto) {
+    function genCard($formato, $primaryColor, $secondaryColor, $nome, $matricula, $curso, $foto) {
         echo "
+        <style>
+            :root {
+                --primary-color: $primaryColor;
+                --secondary-color: $secondaryColor;
+            }
+        </style>
+    </head>
         <div class='$formato'>
             <div class='topnav'></div>
             <div class='content-box'>

@@ -34,6 +34,12 @@
             <option value="cartao">Cartão (5.5cm x 8.5cm)</option>
         </select>
 
+        <label for="primary-color">Cor Principal:</label>
+        <input type="color" name="primary-color" id="primary-color" value="#518c3e">
+
+        <label for="secondary-color">Cor Secundária:</label>
+        <input type="color" name="secondary-color" id="secondary-color" value="#3e7a2a">
+
         <h2>Insira os dados dos alunos</h2>
 
             <table id="form">

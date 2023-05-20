@@ -2,6 +2,8 @@
     include("card.php");
 
     $formato = $_POST["formato"];
+    $primaryColor = $_POST["primary-color"];
+    $secondaryColor = $_POST["secondary-color"];
     $names = $_POST["name"];
     $matriculas = $_POST["matricula"];
     $cursos = $_POST["curso"];
@@ -20,7 +22,7 @@
     $count = 0;
 
     for ($i = 0; $i < count($names); $i++) {
-        genCard($formato, $names[$i], $matriculas[$i], $cursos[$i], $photos[$i]);
+        genCard($formato, $primaryColor, $secondaryColor, $names[$i], $matriculas[$i], $cursos[$i], $photos[$i]);
     }
     echo "</body>";
 ?>
