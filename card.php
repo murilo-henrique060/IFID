@@ -33,7 +33,7 @@
                             <img src='img/logo.svg'>
                         </div>
                         <div class='institute'>
-                            <div class='name'>INSTTUTO<br>FEDERAL</div>
+                            <div class='name'>INSTITUTO<br>FEDERAL</div>
                             <div class='campus'>Pará</div>
                         </div>
                     </div>
