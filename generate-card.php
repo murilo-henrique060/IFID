@@ -1,6 +1,4 @@
 <?php
-    include("card.php");
-
     $formato = $_POST["formato"];
     $primaryColor = $_POST["primary-color"];
     $secondaryColor = $_POST["secondary-color"];
@@ -18,6 +16,7 @@
     }
 
     echo "<body>";
+    include("card.php");
 
     echo "
         <style>
@@ -25,7 +24,7 @@
                 --primary-color: $primaryColor;
                 --secondary-color: $secondaryColor;
             }
-        </style>"
+        </style></head>"
 
     $count = 0;
 
