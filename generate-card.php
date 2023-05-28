@@ -19,6 +19,14 @@
 
     echo "<body>";
 
+    echo "
+        <style>
+            :root {
+                --primary-color: $primaryColor;
+                --secondary-color: $secondaryColor;
+            }
+        </style>"
+
     $count = 0;
 
     for ($i = 0; $i < count($names); $i++) {
