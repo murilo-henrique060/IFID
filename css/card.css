@@ -7,6 +7,6 @@
     --text-color: white;
 }
 
-.padrao {
+.padrao, .cartao {
     display: inline-block;
 }
