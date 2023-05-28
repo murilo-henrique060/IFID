@@ -23,7 +23,7 @@
                 --primary-color: $primaryColor;
                 --secondary-color: $secondaryColor;
             }
-        </style></head>"
+        </style></head>";
 
     $count = 0;
     echo "<body>";
