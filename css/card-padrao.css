@@ -24,6 +24,7 @@
     margin-bottom: 1mm;
 
     background-color: var(--primary-color);
+    print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
 }
 
@@ -108,6 +109,7 @@
 
             background-color: var(--primary-color);
             color: var(--text-color);
+            print-color-adjust: exact;
             -webkit-print-color-adjust: exact;
         }
         
@@ -121,6 +123,7 @@
 
         overflow: hidden;
         background-color: var(--secondary-color);
+        print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
     }
 
@@ -153,6 +156,7 @@
         line-height: 1em;
 
         background-color: white;
+        print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
 
     }
@@ -207,6 +211,7 @@
     margin-top: 1mm;
 
     background-color: var(--primary-color);
+    print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
 }
 
