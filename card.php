@@ -17,13 +17,6 @@
 <?php
     function genCard($formato, $primaryColor, $secondaryColor, $nome, $matricula, $curso, $foto) {
         echo "
-        <style>
-            :root {
-                --primary-color: $primaryColor;
-                --secondary-color: $secondaryColor;
-            }
-        </style>
-    </head>
         <div class='$formato'>
             <div class='topnav'></div>
             <div class='content-box'>
