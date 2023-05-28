@@ -19,7 +19,6 @@
             <a href="index.php">Gerar Cartões</a>
             <a href="#">CSV</a>
             <a href="#">Excel</a>
-            </ul>
         </nav>
     </header>
 
