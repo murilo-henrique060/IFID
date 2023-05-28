@@ -8,7 +8,7 @@
 }
 
 .cartao {
-    display: inline-block;
+    display: inline-block !important;
     width: 55mm;
 
     box-sizing: border-box;
