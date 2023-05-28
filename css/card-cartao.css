@@ -8,13 +8,14 @@
 }
 
 .cartao {
-    display: inline-block;
     width: 55mm;
 
     box-sizing: border-box;
     padding: 2.7mm 2.8mm;
 
     border: 1px solid;
+
+    display: inline-block;
 }
 
 .cartao .topnav {

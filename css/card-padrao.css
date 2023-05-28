@@ -8,13 +8,13 @@
 }
 
 .padrao {
-    display: inline-block;
     width: 7cm;
 
     box-sizing: border-box;
     padding: 3mm 4mm;
 
     border: 1px solid;
+    display: inline-block;
 }
 
 .padrao .topnav {
