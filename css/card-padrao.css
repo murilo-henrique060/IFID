@@ -8,6 +8,7 @@
 }
 
 .padrao {
+    display: inline-block;
     width: 7cm;
 
     box-sizing: border-box;
