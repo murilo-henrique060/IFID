@@ -1,4 +1,6 @@
 <?php
+    include("card.php");
+
     $formato = $_POST["formato"];
     $primaryColor = $_POST["primary-color"];
     $secondaryColor = $_POST["secondary-color"];
@@ -15,9 +17,6 @@
         }
     }
 
-    echo "<body>";
-    include("card.php");
-
     echo "
         <style>
             :root {
@@ -27,7 +26,7 @@
         </style></head>"
 
     $count = 0;
-
+    echo "<body>";
     for ($i = 0; $i < count($names); $i++) {
         genCard($formato, $primaryColor, $secondaryColor, $names[$i], $matriculas[$i], $cursos[$i], $photos[$i]);
     }
