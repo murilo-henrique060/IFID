@@ -15,7 +15,7 @@
     <title>Cartões</title>
 
 <?php
-    function genCard($formato, $primaryColor, $secondaryColor, $nome, $matricula, $curso, $foto) {
+    function genCard($id, $formato, $primaryColor, $secondaryColor, $nome, $matricula, $curso, $foto) {
         echo "
         <div class='$formato'>
             <div class='topnav'></div>
@@ -48,11 +48,11 @@
             </div>
             
             <div class='barcode'>
-                <img id='barcode'/>
+                <img id='barcode-$id'/>
             </div>
 
             <script>
-                genBarcode('barcode', '$matricula');
+                genBarcode('barcode-$id', '$matricula');
             </script>
 
             <div class='footer'>

@@ -28,7 +28,7 @@
     $count = 0;
     echo "<body>";
     for ($i = 0; $i < count($names); $i++) {
-        genCard($formato, $primaryColor, $secondaryColor, $names[$i], $matriculas[$i], $cursos[$i], $photos[$i]);
+        genCard($i, $formato, $primaryColor, $secondaryColor, $names[$i], $matriculas[$i], $cursos[$i], $photos[$i]);
     }
     echo "</body>";
 ?>
