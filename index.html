@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <title>IFID - Criador de crachás do IFPA</title>
+</head>
+<body class="container">
+    <header class="navbar py-3 mb-4 border-bottom">
+        <a class="navbar-brand" href="#"><img src="./img/favicon2.png" alt="IFID" height="50"></a>
+        <nav class="nav nav-pills">
+            <div class="nav-item">
+                <a class="nav-link active" href="#">Início</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link disabled" href="#">CSV</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link disabled" href="#">Excel</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1 class="mb-4">Gerar Cartões</h1>
+        <form action="#" method="post">
+            <h2 class="mb-3">Estilo</h2>
+            
+            <fieldset class="mb-3">
+                <legend class="col-form-label d-flex align-items-center pt-0">Tamanho:</legend>
+                <div class="btn-group ms-2">
+                    <input class="btn-check" type="radio" id="padrao" name="tamanho" value="padrao" checked>
+                    <label class="btn btn-outline-primary" for="padrao">Padrão (7cm x 10cm)</label>
+                    <input class="btn-check" type="radio" id="cartao" name="tamanho" value="cartao">
+                    <label class="btn btn-outline-primary" for="cartao">Cartão (5.5cm x 8.5cm)</label>
+                </div>
+            </fieldset>
+
+            <div class="mb-3">
+                <label class="col-form-label d-flex align-items-center pt-0" for="tema">Tema:</label>
+                <select class="form-select ms-2" id="tema" name="tema">
+                    <option value="padrao" selected>Padrão</option>
+                    <option value="outro" disabled>Outro</option>
+                </select>
+            </div>
+
+            <h2 class="mb-4">Alunos</h2>
+            
+            <table class="table table-hover">
+                
+            </table>
+
+        </form>
+    </main>
+    <footer class="row py-3 my-4 border-top">
+        <span class="col-md-5 d-flex justify-content-center align-items-center text-body-secondary" style="height: 40px;">2023 IFID. Criado por Murilo Henrique</span>
+        
+        <a class="col-sm-2 d-flex justify-content-center align-items-center" href="#" style="height: 40px;"><img src="./img/favicon2.png" alt="IFID" height="25"></a>
+
+        <nav class="nav col-md-5 d-flex justify-content-center align-items-center" style="height: 40px;">
+            <div class="nav-item">
+                <a class="nav-link" href="http://github.com/murilo-henrique060/">Github</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link disabled" href="#">Instagram</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link disabled" href="#">Linkedin</a>
+            </div>
+        </nav>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+</body>
+</html>
