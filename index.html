@@ -59,7 +59,7 @@
                     </tr>
                 </thead>
                 <tbody id="alunos">
-                    <tr>
+                    <tr onClick="adicionar()">
                         <td class="text-center text-secondary" colspan="4">Nenhum aluno encontrado, clique em "adicionar" para adicionar um aluno.</td>
                     </tr>
                 </tbody>
@@ -68,7 +68,7 @@
             <div class="d-flex justify-content-end mb-3">
                 <button type="button" class="btn btn-primary me-2" onClick="adicionar()">Adicionar</button>
                 <button type="button" id="deletar" class="btn btn-danger me-2 disabled" onClick="mostrarDeletar()" disabled>Deletar</button>
-                <button type="button" id="editar" class="btn btn-warning disabled" disabled>Editar</button>
+                <button type="button" id="editar" class="btn btn-warning disabled" onClick="mostrarEditar()" disabled>Editar</button>
             </div>
             <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-outline-success btn-lg disabled">Gerar Crachás</button>
