@@ -1,5 +1,76 @@
 alunos = [];
 
+function adicionar() {
+    document.getElementById("body").innerHTML += 
+        "<div id='adicionar-background' class='container-fluid position-fixed top-0 start-0 vw-100 vh-100' style='background-color: rgba(0, 0, 0, 0.5);z-index:1' onClick='fecharAdicionar()'></div>"+
+        "<div id='adicionar' class='position-fixed top-50 start-50 translate-middle px-3 py-4 rounded-4 bg-body' style='z-index:2;min-width:75%;'>"+
+            "<button type='button' class='btn-close mb-2' aria-label='Close' onClick='fecharAdicionar()'></button>" +
+            "<h1 class='ms-3 mb-4'>Adicionar</h1>" +
+            "<div class='mx-4'>" +
+                "<div class='row mb-4'>" +
+                    "<label class='col-sm-2 col-form-label'>Nome<span class='text-danger'>*</span></label>" +
+                    "<div class='col-sm-10'>" +
+                        "<input type='text' class='form-control' id='nome' onInput='validateNome()' required>" +
+                        "<span id='nome-feedback' class='invalid-feedback' hidden>Preencha este campo</span>" +
+                    "</div>" +
+                "</div>" +
+                "<div class='row mb-4'>" +
+                    "<label class='col-sm-2 col-form-label'>Matricula<span class='text-danger'>*</span></label>" +
+                    "<div class='col-sm-10'>" +
+                        "<input type='text' class='form-control' id='matricula' maxlength='11' onInput='validateMatricula()'>" +
+                        "<span id='matricula-feedback-empty' class='invalid-feedback' hidden>Preencha este campo</span>" +
+                        "<span id='matricula-feedback-format' class='invalid-feedback' hidden>A matrícula deve conter 11 caracteres numéricos</span>" +
+                    "</div>" +
+                "</div>" +
+                "<div class='row mb-4'>" +
+                    "<label class='col-sm-2 col-form-label'>Curso<span class='text-danger'>*</span></label>" +
+                    "<div class='col-sm-10'>" +
+                        "<select class='form-select' id='curso' onInput='validateCurso()'>" +
+                            "<option selected disabled>Selecione...</option>" +
+                            "<option value='Técnico em Agente Comunitário de Saúde'>Técnico em Agente Comunitário de Saúde</option>" +
+                            "<option value='Técnico em Agrimensura'>Técnico em Agrimensura</option>" +
+                            "<option value='Técnico em Aquicultura'>Técnico em Aquicultura</option>" +
+                            "<option value='Técnico em Desenvolvimento de Sistemas'>Técnico em Desenvolvimento de Sistemas</option>" +
+                            "<option value='Técnico em Design de Móveis e Interiores'>Técnico em Design de Móveis e Interiores</option>" +
+                            "<option value='Técnico em Edificações'>Técnico em Edificações</option>" +
+                            "<option value='Técnico em Eletrônica'>Técnico em Eletrônica</option>" +
+                            "<option value='Técnico em Eletrotécnica'>Técnico em Eletrotécnica</option>" +
+                            "<option value='Técnico em Estradas'>Técnico em Estradas</option>" +
+                            "<option value='Técnico em Eventos'>Técnico em Eventos</option>" +
+                            "<option value='Técnico em Geodésia e Cartografia'>Técnico em Geodésia e Cartografia</option>" +
+                            "<option value='Técnico em Hospedagem'>Técnico em Hospedagem</option>" +
+                            "<option value='Técnico em Mecânica'>Técnico em Mecânica</option>" +
+                            "<option value='Técnico em Metalurgia'>Técnico em Metalurgia</option>" +
+                            "<option value='Técnico em Mineração'>Técnico em Mineração</option>" +
+                            "<option value='Técnico em Pesca'>Técnico em Pesca</option>" +
+                            "<option value='Técnico em Química'>Técnico em Química</option>" +
+                            "<option value='Técnico em Saneamento'>Técnico em Saneamento</option>" +
+                            "<option value='Técnico em Segurança do Trabalho'>Técnico em Segurança do Trabalho</option>" +
+                            "<option value='Técnico em Telecomunicação'>Técnico em Telecomunicação</option>" +
+                            "<option value='Técnico em Turismo'>Técnico em Turismo</option>" +
+                        "</select>" +
+                        "<span id='curso-feedback' class='invalid-feedback' hidden>Selecione uma opção</span>" +
+                    "</div>" +
+                "</div>" +
+                "<div class='row mb-4'>" +
+                    "<label class='col-sm-2 col-form-label'>Foto</label>" +
+                    "<div class='col-sm-10'>" +
+                        "<input class='form-control' type='file' accept='image/*' id='foto'>" +
+                    "</div>" +
+                "</div>" +
+                "<div class='d-flex justify-content-end'>" +
+                    "<button class='btn btn-success me-2' onClick='validateForm()'>Concluir</button>" +
+                    "<button class='btn btn-secondary' onClick='fecharAdicionar()'>Cancelar</button>" +
+                "</div>" +
+            "</div>" +
+        "</div>";
+}
+
+function fecharAdicionar() {
+    document.getElementById("adicionar-background").remove();
+    document.getElementById("adicionar").remove();
+}
+
 function validateNome(id="") {
     var nome = document.getElementById("nome" + id);
 
@@ -98,7 +169,7 @@ function validateSelected() {
     }
 
     if (valid) {
-        editRows();
+        //editRow();
         genRows();
         fecharEditar();
     }
@@ -187,14 +258,6 @@ function buttonCheck() {
             "<span class='me-2'>" + document.querySelectorAll("tr.table-active").length + " aluno(s) selecionado(s)</span>" +
             "<a class='me-2 link-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover' onClick='selecionarTodos()'>selecionar todos</a>" +
             "<a class='link-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover' onClick='removerSelecao()'>remover seleção</a>";
-    }
-
-    if (alunos.length == 0) {
-        document.getElementById("btn-submit").disabled == true;
-        document.getElementById("btn-submit").classList.add("disabled");
-    } else {
-        document.getElementById("btn-submit").disabled == false;
-        document.getElementById("btn-submit").classList.remove("disabled");
     }
 }
 
@@ -324,7 +387,7 @@ function mostrarEditar() {
         }
     }
 
-    content += 
+    content +=
                 "<div class='d-flex justify-content-end mb-3'>" +
                     "<button class='btn btn-success me-2' onClick='validateSelected()'>Concluir</button>" +
                     "<button class='btn btn-secondary' onClick='fecharEditar()'>Cancelar</button>" +
