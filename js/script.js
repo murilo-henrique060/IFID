@@ -56,6 +56,75 @@ function closeRemoveStudents() {
     remove_students.remove();
 }
 
+function showEditStudents() {
+    body = document.querySelector("body");
+
+    body_template = document.getElementById("edit-students-body-template");
+
+    field = body_template.content.getElementById("edit-students-field");
+    field.innerHTML = "";
+
+    field_template = document.getElementById("edit-students-field-template");
+
+    for (var student of students.values()) {
+        if (selecteds.has(student.id)) {
+            var field_clone = field_template.content.cloneNode(true);
+            
+            var title = field_clone.getElementById("edit-students-title");
+    
+            var name = field_clone.getElementById("name");
+    
+            var school_id = field_clone.getElementById("school-id");
+    
+            var course = field_clone.getElementById("course");
+    
+            var filename = field_clone.getElementById("photo");
+    
+            title.innerHTML = student.name;
+    
+            name.id = "name" + student.id;
+            name.value = student.name;
+    
+            school_id.id = "school-id" + student.id;
+            school_id.value = student.school_id;
+    
+            course.id = "course" + student.id;
+            option = course.querySelector("option");
+            option.value = student.course;
+            option.innerHTML = student.course;
+    
+            filename.id = "photo" + student.id;
+            filename.defaulValue = student.filename;
+    
+            field.appendChild(field_clone.cloneNode(true));
+        }
+    }
+
+    body.appendChild(body_template.content.cloneNode(true));
+}
+
+function submitEditStudents() {
+    var valid = validateForm(selecteds.values());
+
+    if (valid) {
+        editStudents();
+
+        unselectAllStudents();
+
+        showStudents();
+
+        closeEditStudents();
+    }
+}
+
+function closeEditStudents() {
+    edit_students_background = document.getElementById("edit-students-background");
+    edit_students_background.remove();
+
+    edit_students = document.getElementById("edit-students");
+    edit_students.remove(); 
+}
+
 function showStudents() {
     var studentsTbody = document.getElementById("students");
     studentsTbody.innerHTML = "";

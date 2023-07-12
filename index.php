@@ -103,7 +103,7 @@
                             <label class="col-sm-2 col-form-label">Nome<span class="text-danger">*</span></label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="name" oninput="validateName()" required>
-                                <span id="name-feedback" class="invalid-feedback" hidden></span>
+                                <span class="invalid-feedback" hidden></span>
                             </div>
                         </div>
 
@@ -111,7 +111,7 @@
                             <label class="col-sm-2 col-form-label">Matrícula<span class="text-danger">*</span></label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="school-id" maxlength="11" oninput="validateSchoolId()">
-                                <span id="school-id-feedback" class="invalid-feedback" hidden></span>
+                                <span class="invalid-feedback" hidden></span>
                             </div>
                         </div>
 
@@ -142,7 +142,7 @@
                                     <option value="Técnico em Telecomunicação">Técnico em Telecomunicação</option>
                                     <option value="Técnico em Turismo">Técnico em Turismo</option>
                                 </select>
-                                <span id="course-feedback" class="invalid-feedback" hidden>Selecione uma opção</span>
+                                <span class="invalid-feedback" hidden>Selecione uma opção</span>
                             </div>
                         </div>
                         <div class="row mb-4">
@@ -175,6 +175,87 @@
                         </div>
                     </div>
                 </div>
+            </template>
+
+            <template id="edit-students-body-template">
+                <div id="edit-students-background" class="container-fluid position-fixed top-0 start-0 vw-100 vh-100" style="background-color: rgba(0, 0, 0, 0.5); z-index:1" onclick="closeEditStudents()"></div>
+
+                <div id="edit-students" class="position-fixed overflow-y-auto top-50 start-50 translate-middle px-3 py-4 rounded-4 bg-body" style="z-index:2; min-width:75%; max-height:90%;">
+                    <button type="button" class="btn-close mb-2" aria-label="fechar" onclick="closeEditStudents()"></button>
+                    
+                    <h1 class="ms-3 mb-4">Editar</h1>
+
+                    <div id="edit-students-field" class="mx-4"></div>
+
+                    <div class="d-flex justify-content-end mb-3 mx-4">
+                        <button class="btn btn-success me-2" onclick="submitEditStudents()">Concluir</button>
+                        <button class="btn btn-secondary" onclick="closeEditStudents()">Cancelar</button>
+                    </div>
+                </div>
+            </template>
+
+            <template id="edit-students-field-template">
+                <div class="mb-4">
+                        <h2 id="edit-students-title" class="ms-3 mb-4"></h2>
+
+                        <div class="row ms-3 mb-4">
+                            <label class="col-sm-2 col-form-label">Nome<span class="text-danger">*</span></label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" oninput="validateName(this.id)">
+                                <span class="invalid-feedback" hidden></span>
+                            </div>
+                        </div>
+
+                        <div class="row ms-3 mb-4">
+                            <label class="col-sm-2 col-form-label">Matricula<span class="text-danger">*</span></label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="school-id" maxlength="11" oninput="validateSchoolId(this.id)">
+                                <span class="invalid-feedback" hidden></span>
+                            </div>
+                        </div>
+                        <div class="row ms-3 mb-4">
+                            <label class="col-sm-2 col-form-label">Curso<span class="text-danger">*</span></label>
+
+                            <div class="col-sm-10">
+                                <select class="form-select" id="course" oninput="validateCourse(this.id)">
+                                    <option selected disabled></option>
+                                    <option value="Técnico em Agente Comunitário de Saúde">Técnico em Agente Comunitário de Saúde</option>
+                                    <option value="Técnico em Agrimensura">Técnico em Agrimensura</option>
+                                    <option value="Técnico em Aquicultura">Técnico em Aquicultura</option>
+                                    <option value="Técnico em Desenvolvimento de Sistemas">Técnico em Desenvolvimento de Sistemas</option>
+                                    <option value="Técnico em Design de Móveis e Interiores">Técnico em Design de Móveis e Interiores</option>
+                                    <option value="Técnico em Edificações">Técnico em Edificações</option>
+                                    <option value="Técnico em Eletrônica">Técnico em Eletrônica</option>
+                                    <option value="Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                    <option value="Técnico em Estradas">Técnico em Estradas</option>
+                                    <option value="Técnico em Eventos">Técnico em Eventos</option>
+                                    <option value="Técnico em Geodésia e Cartografia">Técnico em Geodésia e Cartografia</option>
+                                    <option value="Técnico em Hospedagem">Técnico em Hospedagem</option>
+                                    <option value="Técnico em Mecânica">Técnico em Mecânica</option>
+                                    <option value="Técnico em Metalurgia">Técnico em Metalurgia</option>
+                                    <option value="Técnico em Mineração">Técnico em Mineração</option>
+                                    <option value="Técnico em Pesca">Técnico em Pesca</option>
+                                    <option value="Técnico em Química">Técnico em Química</option>
+                                    <option value="Técnico em Saneamento">Técnico em Saneamento</option>
+                                    <option value="Técnico em Segurança do Trabalho">Técnico em Segurança do Trabalho</option>
+                                    <option value="Técnico em Telecomunicação">Técnico em Telecomunicação</option>
+                                    <option value="Técnico em Turismo">Técnico em Turismo</option>
+                                </select>
+                                <span class="invalid-feedback" hidden></span>
+                            </div>
+                        </div>
+
+                        <div class="row ms-3 mb-4">
+                            <label class="col-sm-2 col-form-label">Foto</label>
+                            
+                            <div class="col-sm-10">
+                                <input class="form-control" type="file" accept="image/*" id="photo"
+                                >
+                            </div>
+                        </div>
+                    </div>         
             </template>
 
             <div id="selecteds-count" class="ms-3 mt-1 mb-2 text-secondary lh-1 invisible">

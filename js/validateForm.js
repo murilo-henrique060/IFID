@@ -1,5 +1,5 @@
-function validName(id="") {
-    var name = document.getElementById("name" + id).value;
+function validName(id="name") {
+    var name = document.getElementById(id).value;
     
     if (name.length == 0) {
         return [false, "Preencha este campo."];
@@ -8,8 +8,8 @@ function validName(id="") {
     }
 }
 
-function validSchoolId(id="") {
-    var school_id = document.getElementById("school-id" + id).value;
+function validSchoolId(id="school_id") {
+    var school_id = document.getElementById(id).value;
     
     if (school_id.length == 0) {
         return [false, "Preencha este campo."];
@@ -22,8 +22,8 @@ function validSchoolId(id="") {
     }
 }
 
-function validCourse(id="") {
-    var course = document.getElementById("course" + id).value;
+function validCourse(id="course") {
+    var course = document.getElementById(id).value;
 
     if (course == "Selecione...") {
         return [false, "Selecione uma opção."];
@@ -33,10 +33,10 @@ function validCourse(id="") {
     }
 }
 
-function validateName(id="") {
+function validateName(id="name") {
     var valid = validName(id);
-    var name = document.getElementById("name" + id);
-    var feedback = document.getElementById("name-feedback" + id);
+    var name = document.getElementById(id);
+    var feedback = name.nextElementSibling;
 
     if (valid[0]) {
         name.classList.remove("is-invalid");
@@ -58,10 +58,10 @@ function validateName(id="") {
     }
 }
 
-function validateSchoolId(id="") {
+function validateSchoolId(id="school-id") {
     var valid = validSchoolId(id);
-    var school_id = document.getElementById("school-id" + id);
-    var feedback = document.getElementById("school-id-feedback" + id);
+    var school_id = document.getElementById(id);
+    var feedback = school_id.nextElementSibling;
 
     if (valid[0]) {
         school_id.classList.remove("is-invalid");
@@ -83,10 +83,10 @@ function validateSchoolId(id="") {
     }
 }
 
-function validateCourse(id="") {
+function validateCourse(id="course") {
     var valid = validCourse(id);
-    var course = document.getElementById("course" + id);
-    var feedback = document.getElementById("course-feedback" + id);
+    var course = document.getElementById(id);
+    var feedback = course.nextElementSibling;
 
     if (valid[0]) {
         course.classList.remove("is-invalid");
@@ -112,9 +112,9 @@ function validateForm(id=[""]) {
     var valid = true;
     
     for (i of id) {
-        valid = validateName(i) && valid;
-        valid = validateSchoolId(i) && valid;
-        valid = validateCourse(i) && valid;
+        valid = validateName("name" + i) && valid;
+        valid = validateSchoolId("school-id" + i) && valid;
+        valid = validateCourse("course" + i) && valid;
     }
 
     return valid;
