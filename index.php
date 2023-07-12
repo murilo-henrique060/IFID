@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 
-    <script src="js/script.js"></script>
+    <script src="./js/validateForm.js"></script>
+    <script src="./js/eventHandler.js"></script>
+    <script src="./js/students.js"></script>
+    <script src="./js/script.js"></script>
 
     <title>IFID - Criador de crachás do IFPA</title>
 </head>
 <body class="container" data-bs-theme="dark">
     <header class="navbar d-flex align-items-center py-3 mb-4 border-bottom">
         <a class="navbar-brand" href="#">
-            <img src="img/brand.png" alt="IFID" height="50">
+            <img src="./img/brand.png" alt="IFID" height="50">
         </a>
 
         <nav class="nav nav-pills">
@@ -74,7 +77,7 @@
                 </template>
 
                 <template id="row-template">
-                    <tr>
+                    <tr id="" onclick="checkStudent(this.id)" ondbclick="selectStudent(this.id); editStudent(this.id)">
                         <td class="text-center"></td>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
@@ -91,7 +94,7 @@
                 <div id="add-student-background" class="container-fluid position-fixed top-0 start-0 vw-100 vh-100" style="background-color: rgba(0, 0, 0, 0.5); z-index: 1;" onclick="closeAddStudent()"></div>
 
                 <div id="add-student" class="position-fixed top-50 start-50 translate-middle px-3 py-4 rounded-4 bg-body" style="z-index: 2; min-width: 75%;">        
-                    <button type="button" class="btn-close mb-2" aria-label="fechar" onClick="closeAddStudent()"></button>
+                    <button type="button" class="btn-close mb-2" aria-label="fechar" onclick="closeAddStudent()"></button>
 
                     <h1 class="ms-3 mb-4">Adicionar</h1>
 
@@ -99,24 +102,23 @@
                         <div class="row mb-4">
                             <label class="col-sm-2 col-form-label">Nome<span class="text-danger">*</span></label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" onInput="validateName()" required>
-                                <span id="name-feedback" class="invalid-feedback" hidden>Preencha este campo</span>
+                                <input type="text" class="form-control" id="name" oninput="validateName()" required>
+                                <span class="invalid-feedback" hidden></span>
                             </div>
                         </div>
 
                         <div class="row mb-4">
                             <label class="col-sm-2 col-form-label">Matrícula<span class="text-danger">*</span></label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="matricula" maxlength="11" onInput="validateSchoolId()">
-                                <span id="school-id-feedback-empty" class="invalid-feedback" hidden>Preencha este campo</span>
-                                <span id="school-id-feedback-format" class="invalid-feedback" hidden>A matrícula deve conter 11 caracteres numéricos</span>
+                                <input type="text" class="form-control" id="school-id" maxlength="11" oninput="validateSchoolId()">
+                                <span class="invalid-feedback" hidden></span>
                             </div>
                         </div>
 
                         <div class="row mb-4">
                             <label class="col-sm-2 col-form-label">Curso<span class="text-danger">*</span></label>
                             <div class="col-sm-10">
-                                <select class="form-select" id="curso" onInput="validateCourse()">
+                                <select class="form-select" id="course" oninput="validateCourse()">
                                     <option selected disabled>Selecione...</option>
                                     <option value="Técnico em Agente Comunitário de Saúde">Técnico em Agente Comunitário de Saúde</option>
                                     <option value="Técnico em Agrimensura">Técnico em Agrimensura</option>
@@ -140,25 +142,123 @@
                                     <option value="Técnico em Telecomunicação">Técnico em Telecomunicação</option>
                                     <option value="Técnico em Turismo">Técnico em Turismo</option>
                                 </select>
-                                <span id="course-feedback" class="invalid-feedback" hidden>Selecione uma opção</span>
+                                <span class="invalid-feedback" hidden>Selecione uma opção</span>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label class="col-sm-2 col-form-label">Foto</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="file" accept="image/*" id="foto">
+                                <input class="form-control" type="file" accept="image/*" id="photo">
                             </div>
                         </div>
                         
                         <div class="d-flex justify-content-end">
-                            <button class="btn btn-success me-2" onclick="validateForm()">Concluir</button>
+                            <button class="btn btn-success me-2" onclick="submitAddStudent()">Concluir</button>
                             <button class="btn btn-secondary" onclick="closeAddStudent()">Cancelar</button>
                         </div>
                     </div>
                 </div>
             </template>
 
-            <div id="selecteds-count" class="ms-3 mt-1 mb-2 text-secondary lh-1" style="min-height: 1em;">
+            <template id="remove-students-template">
+                <div id="remove-students-background" class="container-fluid position-fixed top-0 start-0 vw-100 vh-100" style="background-color: rgba(0, 0, 0, 0.5); z-index:1" onclick="closeRemoveStudents()"></div>
+
+                <div id="remove-students" class="position-fixed top-50 start-50 translate-middle px-3 py-4 rounded-4 bg-body" style="z-index:2; min-widht:50%;">
+                    <button type="button" class="btn-close mb-2" aria-label="fechar" onclick="closeRemoveStudents()"></button>
+
+                    <h1 class="ms-3 mb-4">Remover</h1>
+                    <div class="mx-4">
+                        Você tem certeza que deseja deletar <span id="remove-students-selected-number"></span> aluno(s)?
+                        <div class="d-flex mt-3 justify-content-end">
+                            <button class="btn btn-danger me-2" onclick="submitRemoveStudents()">Remover</button>
+                            <button class="btn btn-secondary" onclick="closeRemoveStudents()">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <template id="edit-students-body-template">
+                <div id="edit-students-background" class="container-fluid position-fixed top-0 start-0 vw-100 vh-100" style="background-color: rgba(0, 0, 0, 0.5); z-index:1" onclick="closeEditStudents()"></div>
+
+                <div id="edit-students" class="position-fixed overflow-y-auto top-50 start-50 translate-middle px-3 py-4 rounded-4 bg-body" style="z-index:2; min-width:75%; max-height:90%;">
+                    <button type="button" class="btn-close mb-2" aria-label="fechar" onclick="closeEditStudents()"></button>
+                    
+                    <h1 class="ms-3 mb-4">Editar</h1>
+
+                    <div id="edit-students-field" class="mx-4"></div>
+
+                    <div class="d-flex justify-content-end mb-3 mx-4">
+                        <button class="btn btn-success me-2" onclick="submitEditStudents()">Concluir</button>
+                        <button class="btn btn-secondary" onclick="closeEditStudents()">Cancelar</button>
+                    </div>
+                </div>
+            </template>
+
+            <template id="edit-students-field-template">
+                <div class="mb-4">
+                        <h2 id="edit-students-title" class="ms-3 mb-4"></h2>
+
+                        <div class="row ms-3 mb-4">
+                            <label class="col-sm-2 col-form-label">Nome<span class="text-danger">*</span></label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" oninput="validateName(this.id)">
+                                <span class="invalid-feedback" hidden></span>
+                            </div>
+                        </div>
+
+                        <div class="row ms-3 mb-4">
+                            <label class="col-sm-2 col-form-label">Matricula<span class="text-danger">*</span></label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="school-id" maxlength="11" oninput="validateSchoolId(this.id)">
+                                <span class="invalid-feedback" hidden></span>
+                            </div>
+                        </div>
+                        <div class="row ms-3 mb-4">
+                            <label class="col-sm-2 col-form-label">Curso<span class="text-danger">*</span></label>
+
+                            <div class="col-sm-10">
+                                <select class="form-select" id="course" oninput="validateCourse(this.id)">
+                                    <option selected disabled></option>
+                                    <option value="Técnico em Agente Comunitário de Saúde">Técnico em Agente Comunitário de Saúde</option>
+                                    <option value="Técnico em Agrimensura">Técnico em Agrimensura</option>
+                                    <option value="Técnico em Aquicultura">Técnico em Aquicultura</option>
+                                    <option value="Técnico em Desenvolvimento de Sistemas">Técnico em Desenvolvimento de Sistemas</option>
+                                    <option value="Técnico em Design de Móveis e Interiores">Técnico em Design de Móveis e Interiores</option>
+                                    <option value="Técnico em Edificações">Técnico em Edificações</option>
+                                    <option value="Técnico em Eletrônica">Técnico em Eletrônica</option>
+                                    <option value="Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                    <option value="Técnico em Estradas">Técnico em Estradas</option>
+                                    <option value="Técnico em Eventos">Técnico em Eventos</option>
+                                    <option value="Técnico em Geodésia e Cartografia">Técnico em Geodésia e Cartografia</option>
+                                    <option value="Técnico em Hospedagem">Técnico em Hospedagem</option>
+                                    <option value="Técnico em Mecânica">Técnico em Mecânica</option>
+                                    <option value="Técnico em Metalurgia">Técnico em Metalurgia</option>
+                                    <option value="Técnico em Mineração">Técnico em Mineração</option>
+                                    <option value="Técnico em Pesca">Técnico em Pesca</option>
+                                    <option value="Técnico em Química">Técnico em Química</option>
+                                    <option value="Técnico em Saneamento">Técnico em Saneamento</option>
+                                    <option value="Técnico em Segurança do Trabalho">Técnico em Segurança do Trabalho</option>
+                                    <option value="Técnico em Telecomunicação">Técnico em Telecomunicação</option>
+                                    <option value="Técnico em Turismo">Técnico em Turismo</option>
+                                </select>
+                                <span class="invalid-feedback" hidden></span>
+                            </div>
+                        </div>
+
+                        <div class="row ms-3 mb-4">
+                            <label class="col-sm-2 col-form-label">Foto</label>
+                            
+                            <div class="col-sm-10">
+                                <input class="form-control" type="file" accept="image/*" id="photo"
+                                >
+                            </div>
+                        </div>
+                    </div>         
+            </template>
+
+            <div id="selecteds-count" class="ms-3 mt-1 mb-2 text-secondary lh-1 invisible">
                 <span class="me-2"><span id="selecteds-number"></span> aluno(s) selecionado(s)</span>
                 <a class="me-2 link-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" onclick="selectAllStudents()">selecionar todos</a>
                 <a class="link-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover" onclick="unselectAllStudents()">remover seleção</a>
@@ -166,8 +266,8 @@
 
             <div class="d-flex justify-content-end mb-3">
                 <button type="button" class="btn btn-primary me-2" onclick="showAddStudent()">Adicionar</button>
-                <button type="button" id="btn-remove" class="btn btn-danger me-2 disabled" onclick="showRemoveStudent()">Remover</button>
-                <button type="button" id="btn-edit" class="btn btn-warning disabled" onclick="showEditStudents()">Editar</button>
+                <button type="button" id="btn-remove-selected" class="btn btn-danger me-2 disabled" onclick="showRemoveStudents()">Remover</button>
+                <button type="button" id="btn-edit-selected" class="btn btn-warning disabled" onclick="showEditStudents()">Editar</button>
             </div>
 
             <div class="d-flex justify-content-center">
