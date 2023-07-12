@@ -58,4 +58,12 @@ function verifySelecteds() {
         document.getElementById("btn-remove-selected").classList.remove("disabled");
         document.getElementById("btn-edit-selected").classList.remove("disabled");
     }
+
+    if (students.size == 0) {
+        document.getElementById("btn-submit").classList.add("disabled");
+
+    } else {
+        document.getElementById("btn-submit").classList.remove("disabled");
+        
+    }
 }

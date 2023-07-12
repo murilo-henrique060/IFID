@@ -4,15 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
-    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
-
+    <link rel="stylesheet" href="./bootstrap-5.3.0/css/bootstrap.min.css">
+    <script src="./bootstrap-5.3.0/js/bootstrap.bundle.min.js"></script>
+    
     <script src="./js/validateForm.js"></script>
     <script src="./js/eventHandler.js"></script>
     <script src="./js/students.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/studentsUI.js"></script>
 
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    
     <title>IFID - Criador de crachás do IFPA</title>
 </head>
 <body class="container" data-bs-theme="dark">
@@ -41,10 +42,10 @@
 
                 <div class="btn-group ms-2">
                     <input class="btn-check" type="radio" id="default" name="size" value="default" checked>
-                    <label class="btn btn-outline-primary" for="default">Padrão (7cm x 10cm)</label>
+                    <label class="btn btn-outline-primary" for="default" style="--bs-btn-active-color: #fff;">Padrão (7cm x 10cm)</label>
 
                     <input class="btn-check" type="radio" id="card" name="size" value="card">
-                    <label class="btn btn-outline-primary" for="card">Cartão (5.5cm x 8.5cm)</label>
+                    <label class="btn btn-outline-primary" for="card" style="--bs-btn-active-color: #fff;">Cartão (5.5cm x 8.5cm)</label>
                 </div>
             </fieldset>
 
@@ -265,15 +266,31 @@
             </div>
 
             <div class="d-flex justify-content-end mb-3">
-                <button type="button" class="btn btn-primary me-2" onclick="showAddStudent()">Adicionar</button>
+                <button type="button" class="btn btn-primary me-2 text-white" onclick="showAddStudent()">Adicionar</button>
                 <button type="button" id="btn-remove-selected" class="btn btn-danger me-2 disabled" onclick="showRemoveStudents()">Remover</button>
                 <button type="button" id="btn-edit-selected" class="btn btn-warning disabled" onclick="showEditStudents()">Editar</button>
             </div>
 
             <div class="d-flex justify-content-center">
-                <button id="btn-submit" type="button" class="btn btn-outline-success btn-lg disabled">Gerar Crachás</button>
+                <button id="btn-submit" type="button" class="btn btn-success btn-lg disabled" onclick="submitForm()">Gerar Crachás</button>
             </div>
         </form>
     </main>
+
+    <footer class="row py-3 my-4 border-top">
+        <span class="col-md-5 d-flex justify-content-center align-items-center text-body-secondary" style="height: 40px;">2023 IFID. Criado por Murilo Henrique</span>
+        
+        <a class="col-sm-2 d-flex justify-content-center align-items-center" href="#" style="height: 40px;"><img src="./img/brand.png" alt="IFID" height="25"></a>
+
+        <nav class="nav col-md-5 d-flex justify-content-center align-items-center" style="height: 40px;">
+            <a class="nav-link" href="http://github.com/murilo-henrique060/">Github</a>
+
+            <a class="nav-link disabled" href="#">Instagram</a>
+            
+            <a class="nav-link disabled" href="#">Linkedin</a>
+        </nav>
+    </footer>
+
+    <script src="./bootstrap-5.3.0/js/bootstrap.min.js"></script>
 </body>
 </html>
