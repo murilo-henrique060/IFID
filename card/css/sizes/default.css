@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:800,400');
+@import url('https://fonts.googleapis.com/css?family=Open Sans Condensed:300');
+
+.size-default {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+    width: 264px;
+    height: 378px;
+    padding: 12px 15px 19px 15px;
+}
+
+    .topbar {
+        align-self: stretch;
+        flex-shrink: 0;
+        
+        height: 26px;
+    }
+
+    .head {
+        display: flex;
+        
+        justify-content: space-between;
+        align-items: flex-start;
+        align-self: stretch;
+    }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+
+            justify-content: space-between;
+            align-items: flex-start;
+            align-self: stretch;
+        }
+
+            .header {
+                display: flex;
+                align-items: flex-start;
+                gap: 5px;
+                align-self: stretch;
+            }
+
+                .logo {
+                    width: 37px;
+                    height: 49px;
+                }
+
+                .label {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    align-self: stretch;
+                }
+
+                    .institute {
+                        font-family: "Open Sans";
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 800;
+                        line-height: 17px;
+                    }
+
+                    .province {
+                        font-family: "Open Sans Condensed";
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 16px;
+                    }

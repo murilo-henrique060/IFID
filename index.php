@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="./bootstrap-5.3.0/css/bootstrap.min.css">
-    <script src="./bootstrap-5.3.0/js/bootstrap.bundle.min.js"></script>
     
     <script src="./js/validateForm.js"></script>
     <script src="./js/eventHandler.js"></script>
     <script src="./js/students.js"></script>
     <script src="./js/studentsUI.js"></script>
+    <script src="./js/index.js"></script>    
 
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     
@@ -290,7 +290,5 @@
             <a class="nav-link disabled" href="#">Linkedin</a>
         </nav>
     </footer>
-
-    <script src="./bootstrap-5.3.0/js/bootstrap.min.js"></script>
 </body>
 </html>
